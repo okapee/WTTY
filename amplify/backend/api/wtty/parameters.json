@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "wtty",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authwtty426c956c",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

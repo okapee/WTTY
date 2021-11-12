@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-wtty-dev-90006-authRole",
+      "UnauthRoleArn": "arn:aws:iam::014913632072:role/amplify-wtty-dev-90006-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::014913632072:role/amplify-wtty-dev-90006-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-wtty-dev-90006-deployment",
+      "UnauthRoleName": "amplify-wtty-dev-90006-unauthRole",
+      "StackName": "amplify-wtty-dev-90006",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:014913632072:stack/amplify-wtty-dev-90006/55f4a1c1-4282-11ec-b100-0a187ebbb1d7",
+      "AmplifyAppId": "d3w4hdf9gpe7r4"
+    },
+    "categories": {
+      "auth": {
+        "wtty426c956c": {}
+      }
+    }
+  }
+}
