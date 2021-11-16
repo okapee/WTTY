@@ -1,0 +1,16 @@
+import React from 'react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import Amplify from 'aws-amplify';
+import { cognitoConstants } from 'constants/auth';
+
+Amplify.configure(awsconfig);
+
+const App = () => (
+  <AmplifyAuthenticator>
+    <div>
+      My App
+    </div>
+  </AmplifyAuthenticator>
+);
+
+export default withAuthenticator(App);

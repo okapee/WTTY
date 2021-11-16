@@ -2,10 +2,13 @@ import '../App.css';
 import React, {useState, useEffect, useReducer } from 'react';
 import Amplify, { Auth } from 'aws-amplify';
 import API, { graphqlOperation } from '@aws-amplify/api';
-import { withAuthenticator } from 'aws-amplify-react'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { createTodo } from '../graphql/mutations';
 import { listTodos } from '../graphql/queries';
 import { onCreateTodo } from '../graphql/subscriptions';
+
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
 
 import awsconfig from '../aws-exports';
 
@@ -29,11 +32,11 @@ const reducer = (state, action) => {
   }
 };
 
-function signOut(){
-  Auth.signOut()
-  .then()
-  .catch();
-}
+// function signOut(){
+//   Auth.signOut()
+//   .then()
+//   .catch();
+// }
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -88,7 +91,7 @@ function App() {
   return (
     <div className="App">
       <p>user: {user!= null && user.username}</p>
-      <button onClick={signOut}>Sign out</button>
+      {/* <button onClick={signOut}>Sign out</button> */}
       <div>
         <table border="1" style={{'border-collapse': 'collapse'}}>
           <tr>
@@ -99,9 +102,9 @@ function App() {
           </tr>
           <tr>
             <td></td>
-            <td><input id='title' type='text' onChange={onChange} value={title}/></td>
-            <td><input id='detail' type='text' onChange={onChange} value={detail}/></td>
-            <th><button onClick={create}>New</button></th>
+            <td><Input id='title' type='text' onChange={onChange} value={title}/></td>
+            <td><Input id='detail' type='text' onChange={onChange} value={detail}/></td>
+            <th><Button onClick={create}>New</Button></th>
           </tr>
           {state.todos && state.todos.map((todo,index) => {
             return(
@@ -115,8 +118,10 @@ function App() {
           })}
         </table>
       </div>
+      <AmplifySignOut />
     </div>
   );
+
 }
 
 const signUpConfig = {
